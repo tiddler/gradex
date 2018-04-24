@@ -43,6 +43,249 @@
       </v-card>
     </v-dialog> 
 
+
+    <!-- Crossing Modification dialog -->
+    <v-dialog
+      v-model="info_dialog" 
+      fullscreen 
+      hide-overlay 
+      transition="dialog-bottom-transition"
+    >
+      <v-card>
+      <v-toolbar dark color="light-blue">
+        <v-btn icon @click.native="info_dialog = false" dark>
+          <v-icon>close</v-icon>
+        </v-btn>
+        <v-toolbar-title>Crossing ID: {{crossing.id}}</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items>
+          <v-btn dark flat @click.native="info_dialog = false">Save</v-btn>
+        </v-toolbar-items>
+        <v-tabs
+          centered
+          color="light-blue"
+          slot="extension"
+          slider-color="yellow"
+          grow
+          v-model="inventory_tabs"
+        >
+          <v-tab href="#tab-1">General</v-tab>
+          <v-tab href="#tab-2">Crossing General</v-tab>
+          <v-tab href="#tab-3">Crossing Geometry</v-tab>
+          <v-tab href="#tab-4">Crossing Traffic</v-tab>
+        </v-tabs>
+      </v-toolbar>
+      <v-tabs-items v-model="inventory_tabs">
+        <v-tab-item :id="'tab-1'">
+          <v-card>
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Long English</v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-text-field :label=crossing.english single-line v-model="info_dia_items.english"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Long French</v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-text-field label="cannot decoding french" single-line v-model="info_dia_items.french"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Status *</v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_items.status"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Type *</v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-select :label=crossing.type :items="type_items" single-line v-model="info_dia_items.type"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>In Service *</v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-menu
+                      ref="menu1"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_inservice_from"
+                      :return-value.sync="info_dia_items.in_service_from"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_from
+                        v-model="info_dia_items.in_service_from"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_items.in_service_from"        
+                        @change="$refs.menu1.save(info_dia_items.in_service_from)"
+                        >
+                      </v-date-picker>
+                    </v-menu>          
+                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_items.in_service_from"></v-text-field> -->
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader>To</v-subheader>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-menu
+                      ref="menu2"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_inservice_to"
+                      :return-value.sync="info_dia_items.in_service_to"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_to
+                        v-model="info_dia_items.in_service_to"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_items.in_service_to" 
+                        @change="$refs.menu2.save(info_dia_items.in_service_to)"
+                        >
+                      </v-date-picker>
+                    </v-menu>   
+                    <!-- <v-text-field :label=crossing.in_service_to single-line v-model="info_dia_items.in_service_to"></v-text-field> -->
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader>Key Rt</v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-text-field :label=crossing.key_rt single-line v-model="info_dia_items.key_rt"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Railway </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.railway single-line v-model="info_dia_items.railway"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Jurisdiction *</v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.juris :items="juris_items" single-line v-model="info_dia_items.juris"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Subdivision </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.subdivision single-line v-model="info_dia_items.subdivision"></v-text-field>
+                  </v-flex>              
+                  <v-flex xs2 sm2>
+                    <v-subheader>Mile </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.mile single-line v-model="info_dia_items.mile"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Spur </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.spur single-line v-model="info_dia_items.spur"></v-text-field>
+                  </v-flex>              
+                  <v-flex xs2 sm2>
+                    <v-subheader>Mile </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.s_mile single-line v-model="info_dia_items.s_mile"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Province * </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.province :items="province_items" single-line v-model="info_dia_items.province"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Region </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.region :items="region_items" single-line v-model="info_dia_items.region"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Latitude </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.lat single-line v-model="info_dia_items.lat"></v-text-field>
+                  </v-flex>              
+                  <v-flex xs2 sm2>
+                    <v-subheader>Longitude </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.lng single-line v-model="info_dia_items.lng"></v-text-field>
+                  </v-flex> 
+                  <v-flex xs2 sm2>
+                    <v-subheader>Nearest Muni </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.nearest_muni single-line v-model="info_dia_items.nearest_muni"></v-text-field>
+                  </v-flex>               
+                  <v-flex xs2 sm2>
+                    <v-subheader>Road/Hwy #Eng</v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.road_hwy single-line v-model="info_dia_items.road_hwy"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>GEO Text </v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-text-field :label=crossing.geo_text single-line v-model="info_dia_items.geo_text"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Updatedby </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field :label=crossing.updated_by single-line v-model="info_dia_items.updated_by"></v-text-field>
+                  </v-flex>               
+                  <v-flex xs2 sm2>
+                    <v-subheader>on </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                  <v-menu
+                      ref="menu3"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_updated_on"
+                      :return-value.sync="info_dia_items.on"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.updated_on
+                        v-model="info_dia_items.on"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_items.on"        
+                        @change="$refs.menu3.save(info_dia_items.on)"
+                        >
+                      </v-date-picker>
+                    </v-menu> 
+                    <!-- <v-text-field :label=crossing.on single-line v-model="info_dia_items.on"></v-text-field> -->
+                  </v-flex>    
+                  <v-flex xs2 sm2>
+                    <v-subheader>Memo </v-subheader>
+                  </v-flex>
+                  <v-flex xs10 sm10>
+                    <v-text-field :label=crossing.memo single-line v-model="info_dia_items.memo"></v-text-field>
+                  </v-flex>    
+                </v-layout>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
+    </v-dialog>
+
     <!-- Left Panel: navigation drawer -->
     <v-navigation-drawer 
       id="crosslist"
@@ -72,7 +315,21 @@
           <v-progress-linear id="progress-bar" :value="answer_number / question_list.length * 100" height="8" color="teal"></v-progress-linear>
           <div>{{ answer_number +'/' + question_list.length }}</div>
         </div>
+        <v-btn
+          absolute
+          dark
+          fab
+          bottom
+          right
+          small
+          color="blue-grey"
+          @click.native.stop="info_dialog = true"
+        >
+          <v-icon>create</v-icon>
+        </v-btn>
       </v-card>
+      
+      <v-subheader>Questions:</v-subheader>
       
       <v-btn :color="getColor(question, index)" 
         :outline="question.answer==null && current_question != index" 
@@ -225,6 +482,111 @@ export default {
             'Your inspection work will be saved. You may continue later to complete the inspection.'
         }
       ],
+
+      // pop-up dialog for modifying crossing info
+      crossing: {
+        id: '304562',
+        component: 'AWS',
+        last_inspect_date: '01-20-2017',
+        RSI_Name: 'Jeffrey Young',
+        RSI_Region: 'ONT',
+        railway_Maintainer: 'Richky Klein',
+        attendign_railway_emp: 'Jay Price',
+        address: '8731 Leuschke Roads East Audie',
+        english: 'AWS: Mile 0 Mcmillan Bloedel Co Spur  23.9, Cartier Subdivision (Ottawa Valley Rail Link), Hwy 17  (Sturgeon Falls), (Y), CrossingID: 20517',
+        french: '',
+        status: 'Active - Currently: In use by the Railway today',
+        type: 'Signals - AWS (Active Warning System)',
+        in_service_from: '2014-06-26',
+        in_service_to: 'NaN',
+        railway: 'Ottawa Valley Railway',
+        juris: 'Federal',
+        key_rt: 'Unknown',
+        subdivision: 'Cartier',
+        mile: 23.9,
+        spur: 'Mcmillan Bloedel Co',
+        s_mile: 0,
+        province: 'Ont.',
+        region: 'ONT',
+        longitude: -79.9371,
+        latitude: 46.3662,
+        road_hwy: 'Hwy 17  (Sturgeon Falls)',
+        nearest_muni: 'ON -Ministry of Transportation',
+        GEO_text: 'NaN',
+        updated_by: 'NaN',
+        updated_on: '2017-03-27',
+        memo: '20517'
+      },
+      info_dialog: null,
+      info_dia_items: {
+        english: '',
+        french: '',
+        status: null,
+        types: null,
+        inservice_from: false,
+        inservice_to: false,
+        railway: '',
+        juris: null,
+        key_rt: '',
+        subdivision: '',
+        mile: '',
+        spur: '',
+        s_mile: '',
+        region: null,
+        province: null,
+        lat: '',
+        lng: '',
+        nearest_muni: '',
+        road_hwy: '',
+        geo_text: '',
+        updatedby: '',
+        updated_on: false,
+        memo: ''
+      },
+      // info lists
+      status_items: [
+        'Active - Currently: In use by the Railway today',
+        'Inactive - Permanent: Change of ownership',
+        'Inactive - Permanent: Crossing road apprch removed',
+        'Inactive - Permanent: Railway will not use again',
+        'Inactive - Permanent: Track Abandoned',
+        'Inactive - Temporary: may be re-used'
+      ],
+      type_items: [
+        'Crossing (Passive)',
+        'Signals - AWS (Active Warning System)'
+      ],
+      juris_items: [
+        'Federal',
+        'Provincial'
+      ],
+      region_items: [
+        'ATL',
+        'ONT',
+        'PAC',
+        'PNR',
+        'QUE'
+      ],
+      province_items: [
+        'Alta.',
+        'B.C.',
+        'Man.',
+        'N.B.',
+        'N.L.',
+        'N.S.',
+        'N.W.T.',
+        'Ont.',
+        'Que.',
+        'Sask.',
+        'Y.T.'
+      ],
+      // date picker menu
+      menu_inservice_from: false,
+      menu_inservice_to: false,
+      menu_updated_on: false,
+
+      inventory_tabs: null,
+ 
       // question panel
       transition: 'slide-right',
       current_question: 0,
