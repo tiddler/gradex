@@ -85,25 +85,25 @@
                     <v-subheader>Long English</v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-text-field :label=crossing.english single-line v-model="info_dia_items.english"></v-text-field>
+                    <v-text-field :label=crossing.english single-line v-model="info_dia_tab1.english"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Long French</v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-text-field label="cannot decoding french" single-line v-model="info_dia_items.french"></v-text-field>
+                    <v-text-field label="cannot decoding french" single-line v-model="info_dia_tab1.french"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Status *</v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_items.status"></v-select>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab1.status"></v-select>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Type *</v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-select :label=crossing.type :items="type_items" single-line v-model="info_dia_items.type"></v-select>
+                    <v-select :label=crossing.type :items="type_items" single-line v-model="info_dia_tab1.type"></v-select>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>In Service *</v-subheader>
@@ -114,21 +114,21 @@
                       lazy
                       :close-on-content-click="false"
                       v-model="menu_inservice_from"
-                      :return-value.sync="info_dia_items.in_service_from"
+                      :return-value.sync="info_dia_tab1.in_service_from"
                     >
                       <v-text-field
                         slot="activator"
                         single-line
                         :label=crossing.in_service_from
-                        v-model="info_dia_items.in_service_from"
+                        v-model="info_dia_tab1.in_service_from"
                       ></v-text-field>
                       <v-date-picker 
-                        v-model="info_dia_items.in_service_from"        
-                        @change="$refs.menu1.save(info_dia_items.in_service_from)"
+                        v-model="info_dia_tab1.in_service_from"        
+                        @change="$refs.menu1.save(info_dia_tab1.in_service_from)"
                         >
                       </v-date-picker>
                     </v-menu>          
-                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_items.in_service_from"></v-text-field> -->
+                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_tab1.in_service_from"></v-text-field> -->
                   </v-flex>
                   <v-flex xs1 sm1>
                     <v-subheader>To</v-subheader>
@@ -139,111 +139,111 @@
                       lazy
                       :close-on-content-click="false"
                       v-model="menu_inservice_to"
-                      :return-value.sync="info_dia_items.in_service_to"
+                      :return-value.sync="info_dia_tab1.in_service_to"
                     >
                       <v-text-field
                         slot="activator"
                         single-line
                         :label=crossing.in_service_to
-                        v-model="info_dia_items.in_service_to"
+                        v-model="info_dia_tab1.in_service_to"
                       ></v-text-field>
                       <v-date-picker 
-                        v-model="info_dia_items.in_service_to" 
-                        @change="$refs.menu2.save(info_dia_items.in_service_to)"
+                        v-model="info_dia_tab1.in_service_to" 
+                        @change="$refs.menu2.save(info_dia_tab1.in_service_to)"
                         >
                       </v-date-picker>
                     </v-menu>   
-                    <!-- <v-text-field :label=crossing.in_service_to single-line v-model="info_dia_items.in_service_to"></v-text-field> -->
+                    <!-- <v-text-field :label=crossing.in_service_to single-line v-model="info_dia_tab1.in_service_to"></v-text-field> -->
                   </v-flex>
                   <v-flex xs1 sm1>
                     <v-subheader>Key Rt</v-subheader>
                   </v-flex>
                   <v-flex xs3 sm3>
-                    <v-text-field :label=crossing.key_rt single-line v-model="info_dia_items.key_rt"></v-text-field>
+                    <v-text-field :label=crossing.key_rt single-line v-model="info_dia_tab1.key_rt"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Railway </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.railway single-line v-model="info_dia_items.railway"></v-text-field>
+                    <v-text-field :label=crossing.railway single-line v-model="info_dia_tab1.railway"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Jurisdiction *</v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-select :label=crossing.juris :items="juris_items" single-line v-model="info_dia_items.juris"></v-select>
+                    <v-select :label=crossing.juris :items="juris_items" single-line v-model="info_dia_tab1.juris"></v-select>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Subdivision </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.subdivision single-line v-model="info_dia_items.subdivision"></v-text-field>
+                    <v-text-field :label=crossing.subdivision single-line v-model="info_dia_tab1.subdivision"></v-text-field>
                   </v-flex>              
                   <v-flex xs2 sm2>
                     <v-subheader>Mile </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.mile single-line v-model="info_dia_items.mile"></v-text-field>
+                    <v-text-field :label=crossing.mile single-line v-model="info_dia_tab1.mile"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Spur </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.spur single-line v-model="info_dia_items.spur"></v-text-field>
+                    <v-text-field :label=crossing.spur single-line v-model="info_dia_tab1.spur"></v-text-field>
                   </v-flex>              
                   <v-flex xs2 sm2>
                     <v-subheader>Mile </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.s_mile single-line v-model="info_dia_items.s_mile"></v-text-field>
+                    <v-text-field :label=crossing.s_mile single-line v-model="info_dia_tab1.s_mile"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Province * </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-select :label=crossing.province :items="province_items" single-line v-model="info_dia_items.province"></v-select>
+                    <v-select :label=crossing.province :items="province_items" single-line v-model="info_dia_tab1.province"></v-select>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Region </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-select :label=crossing.region :items="region_items" single-line v-model="info_dia_items.region"></v-select>
+                    <v-select :label=crossing.region :items="region_items" single-line v-model="info_dia_tab1.region"></v-select>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Latitude </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.lat single-line v-model="info_dia_items.lat"></v-text-field>
+                    <v-text-field :label=crossing.lat single-line v-model="info_dia_tab1.lat"></v-text-field>
                   </v-flex>              
                   <v-flex xs2 sm2>
                     <v-subheader>Longitude </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.lng single-line v-model="info_dia_items.lng"></v-text-field>
+                    <v-text-field :label=crossing.lng single-line v-model="info_dia_tab1.lng"></v-text-field>
                   </v-flex> 
                   <v-flex xs2 sm2>
                     <v-subheader>Nearest Muni </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.nearest_muni single-line v-model="info_dia_items.nearest_muni"></v-text-field>
+                    <v-text-field :label=crossing.nearest_muni single-line v-model="info_dia_tab1.nearest_muni"></v-text-field>
                   </v-flex>               
                   <v-flex xs2 sm2>
                     <v-subheader>Road/Hwy #Eng</v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.road_hwy single-line v-model="info_dia_items.road_hwy"></v-text-field>
+                    <v-text-field :label=crossing.road_hwy single-line v-model="info_dia_tab1.road_hwy"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>GEO Text </v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-text-field :label=crossing.geo_text single-line v-model="info_dia_items.geo_text"></v-text-field>
+                    <v-text-field :label=crossing.geo_text single-line v-model="info_dia_tab1.geo_text"></v-text-field>
                   </v-flex>
                   <v-flex xs2 sm2>
                     <v-subheader>Updatedby </v-subheader>
                   </v-flex>
                   <v-flex xs4 sm4>
-                    <v-text-field :label=crossing.updated_by single-line v-model="info_dia_items.updated_by"></v-text-field>
+                    <v-text-field :label=crossing.updated_by single-line v-model="info_dia_tab1.updated_by"></v-text-field>
                   </v-flex>               
                   <v-flex xs2 sm2>
                     <v-subheader>on </v-subheader>
@@ -254,32 +254,598 @@
                       lazy
                       :close-on-content-click="false"
                       v-model="menu_updated_on"
-                      :return-value.sync="info_dia_items.on"
+                      :return-value.sync="info_dia_tab1.on"
                     >
                       <v-text-field
                         slot="activator"
                         single-line
                         :label=crossing.updated_on
-                        v-model="info_dia_items.on"
+                        v-model="info_dia_tab1.on"
                       ></v-text-field>
                       <v-date-picker 
-                        v-model="info_dia_items.on"        
-                        @change="$refs.menu3.save(info_dia_items.on)"
+                        v-model="info_dia_tab1.on"        
+                        @change="$refs.menu3.save(info_dia_tab1.on)"
                         >
                       </v-date-picker>
                     </v-menu> 
-                    <!-- <v-text-field :label=crossing.on single-line v-model="info_dia_items.on"></v-text-field> -->
+                    <!-- <v-text-field :label=crossing.on single-line v-model="info_dia_tab1.on"></v-text-field> -->
                   </v-flex>    
                   <v-flex xs2 sm2>
                     <v-subheader>Memo </v-subheader>
                   </v-flex>
                   <v-flex xs10 sm10>
-                    <v-text-field :label=crossing.memo single-line v-model="info_dia_items.memo"></v-text-field>
+                    <v-text-field :label=crossing.memo single-line v-model="info_dia_tab1.memo"></v-text-field>
                   </v-flex>    
                 </v-layout>
               </v-container>
               <small>*indicates required field</small>
             </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item :id="'tab-2'">
+          <v-card>
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Type/TC ID: *</v-subheader>
+                  </v-flex>
+                  <v-flex xs6 sm6>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.typeID"></v-select>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader>   / </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-text-field label="  " single-line v-model="info_dia_tab2.typeID_num"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Access: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.access"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Railway: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.railway"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Jurisdiction: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="juris_items" single-line v-model="info_dia_tab2.juris"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Prov.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="province_items" single-line v-model="info_dia_tab2.province"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Subdivision: *</v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="4.500" single-line v-model="info_dia_tab2.sub_t"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="province_items" single-line v-model="info_dia_tab2.sub_s"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Key Route: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="province_items" single-line v-model="info_dia_tab2.keyRoute"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Spur: *</v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="*** " single-line v-model="info_dia_tab2.spur_t"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="province_items" single-line v-model="info_dia_tab2.spur_s"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> GCR Appl.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="province_items" single-line v-model="info_dia_tab2.gcr"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Pedestrain Protection: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.pedesP"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Whis. Cess.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.whis"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Passive Protection: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.passiveP"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> WC Prov.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field label="*** " single-line v-model="info_dia_tab2.wcProv"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>AWS Protection: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.aws"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> WC Auth.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field label="*** " single-line v-model="info_dia_tab2.wcAuth"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Track Circuit: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.trackC"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Rd. Class 1: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.rdClass1"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>LED Lights: </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.led"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Data Recorder: </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.dataR"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Rd. Type: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.rdT"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Road Name/Hwy#: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-text-field label="Chemin Ste-Marie" single-line v-model="info_dia_tab2.rname"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Rd. Class 2: </v-subheader>
+                  </v-flex>
+                  <v-flex xs4 sm4>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.rdClass2"></v-select>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Road Auth. #1: </v-subheader>
+                  </v-flex>
+                  <v-flex xs8 sm8>
+                    <v-text-field label="Saint-Polucanpe (QC)" single-line v-model="info_dia_tab2.rAuth1"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-checkbox label="Private" single-line v-model="info_dia_tab2.private_1"></v-checkbox>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Road Auth. #2: </v-subheader>
+                  </v-flex>
+                  <v-flex xs8 sm8>
+                    <v-text-field label="Chemin Ste-Marie xxxx" single-line v-model="info_dia_tab2.rAuth2"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-checkbox label="Private" single-line v-model="info_dia_tab2.private_2"></v-checkbox>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader> Exemption: </v-subheader>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.exemp_s"></v-select>
+                  </v-flex>
+                  <v-flex xs8 sm8>
+                    <v-text-field label="Chemin Ste-Marie" single-line v-model="info_dia_tab2.exemp_t"></v-text-field>
+                  </v-flex>    
+                  <v-flex xs2 sm2>
+                    <v-subheader>Last Inspected</v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-menu
+                      ref="menu2_1"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="memu_last_inspected"
+                      :return-value.sync="info_dia_tab1.last_inspected"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_from
+                        v-model="info_dia_tab2.last_inspected"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_tab2.last_inspected"        
+                        @change="$refs.menu2_1.save(info_dia_tab2.last_inspected)"
+                        >
+                      </v-date-picker>
+                    </v-menu>          
+                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_tab2.in_service_from"></v-text-field> -->
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader> By: </v-subheader>
+                  </v-flex>
+                  <v-flex xs6 sm6>
+                    <v-text-field label=" Shuangsho" single-line v-model="info_dia_tab2.by_inspetec"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>Last Comp.A Insp</v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-menu
+                      ref="menu2_2"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_last_comp"
+                      :return-value.sync="info_dia_tab2.last_comp"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_from
+                        v-model="info_dia_tab2.last_comp"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_tab2.last_comp"        
+                        @change="$refs.menu2_2.save(info_dia_tab2.last_comp)"
+                        >
+                      </v-date-picker>
+                    </v-menu>          
+                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_tab2.in_service_from"></v-text-field> -->
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader>By: </v-subheader>
+                  </v-flex>
+                  <v-flex xs6 sm6>
+                    <v-text-field label=" Shuangsho" single-line v-model="info_dia_tab2.by_comp"></v-text-field>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-subheader>In Service From</v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-menu
+                      ref="menu2_3"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_inservice_from_tab2"
+                      :return-value.sync="info_dia_tab1.in_service_from"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_from
+                        v-model="info_dia_tab1.in_service_from"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_tab1.in_service_from"        
+                        @change="$refs.menu2_3.save(info_dia_tab1.in_service_from)"
+                        >
+                      </v-date-picker>
+                    </v-menu>          
+                    <!-- <v-text-field :label=crossing.in_service_from single-line v-model="info_dia_tab1.in_service_from"></v-text-field> -->
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-subheader>To</v-subheader>
+                  </v-flex>
+                  <v-flex xs2 sm2>
+                    <v-menu
+                      ref="menu2_4"
+                      lazy
+                      :close-on-content-click="false"
+                      v-model="menu_inservice_to_tab2"
+                      :return-value.sync="info_dia_tab1.in_service_to"
+                    >
+                      <v-text-field
+                        slot="activator"
+                        single-line
+                        :label=crossing.in_service_to
+                        v-model="info_dia_tab1.in_service_to"
+                      ></v-text-field>
+                      <v-date-picker 
+                        v-model="info_dia_tab1.in_service_to" 
+                        @change="$refs.menu2_4.save(info_dia_tab1.in_service_to)"
+                        >
+                      </v-date-picker>
+                    </v-menu>   
+                    <!-- <v-text-field :label=crossing.in_service_to single-line v-model="info_dia_tab1.in_service_to"></v-text-field> -->
+                  </v-flex>              
+                  <v-flex xs1 sm1>
+                    <v-subheader>Status: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab2.status_s"></v-select>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item :id="'tab-3'">
+          <v-card>
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs3 sm3>
+                    <v-subheader>#Track: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-text-field label="1" single-line v-model="info_dia_tab3.track"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Rail Approach: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.rail_app"></v-select>
+                  </v-flex>  
+                  <v-flex xs3 sm3>
+                    <v-subheader>#Lanes: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-text-field label="2" single-line v-model="info_dia_tab3.lanes"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Raod Approach: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.road_app"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Sildewalks(SW): </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.sw"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Approach Surface: </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.aSur1"></v-select>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.aSur2"></v-select>
+                  </v-flex> 
+                  <v-flex xs3 sm3>
+                    <v-subheader>SW for Assistive Dev.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.swAD"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Gradient SSD (Percentage): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="0.00" single-line v-model="info_dia_tab3.ssd1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="200.00" single-line v-model="info_dia_tab3.ssd2"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Area Lighting: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.al"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Gradient Stopped (Percentage): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.gs1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.gs2"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Track Type: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.trackType"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>DSSD (Meters): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.dssd1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.dssd2"></v-text-field>
+                  </v-flex>        
+                  <v-flex xs3 sm3>
+                    <v-subheader>Incr. Mile Direct.: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.incrDirec"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>DStoppped (Meters): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.dstop1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.dstop2"></v-text-field>
+                  </v-flex>      
+                  <v-flex xs3 sm3>
+                    <v-subheader>Track Angle (Degree): </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-text-field label="80/00" single-line v-model="info_dia_tab3.trackAngle"></v-text-field>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Departure (Seconds): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.depart1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.depart2"></v-text-field>
+                  </v-flex>   
+                  <v-flex xs3 sm3>
+                    <v-subheader>Prepare to Stop Sign: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.prepareStop"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Advance Activation (Seconds): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.aActivation1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.aActivation2"></v-text-field>
+                  </v-flex>      
+                  <v-flex xs3 sm3>
+                    <v-subheader>Intercon. Traffic Signal: </v-subheader>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-select :label=crossing.status :items="status_items" single-line v-model="info_dia_tab3.intercon"></v-select>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Preemption Time (Seconds): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.preemp1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.preemp2"></v-text-field>
+                  </v-flex>
+                  <v-flex xs6 sm6>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Distance to Intersections (Meters): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.disIntersection1"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.disIntersection2"></v-text-field>
+                  </v-flex>   
+                  <v-flex xs6 sm6>
+                  </v-flex>
+                  <v-flex xs3 sm3>
+                    <v-subheader>Clearance Distance (Meters): </v-subheader>
+                  </v-flex>
+                  <v-flex xs1 sm1>
+                    <v-text-field label="__" single-line v-model="info_dia_tab3.clearDis"></v-text-field>
+                  </v-flex>     
+                  <v-flex xs1 sm1>
+                  </v-flex>                    
+                  <v-flex xs1 sm1>
+                  </v-flex>
+                  <v-flex xs12 sm12>
+                    Comment for Approach Direction Column #1:
+                  </v-flex> 
+                  <v-flex xs12 sm12>
+                    <v-text-field label="  " single-line v-model="info_dia_tab3.comment1"></v-text-field>
+                  </v-flex>                                                                                          
+                  <v-flex xs12 sm12>
+                    Comment for Approach Direction Column #2:
+                  </v-flex> 
+                  <v-flex xs12 sm12>
+                    <v-text-field label="  " single-line v-model="info_dia_tab3.comment2"></v-text-field>
+                  </v-flex> 
+                </v-layout>
+              </v-container>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item :id="'tab-4'">
+          <v-card>
+            <v-card-title>
+              <div>
+                <h3 class="title-text">Train Traffic</h3>
+              </div>
+            </v-card-title>
+            <v-data-table
+              :headers="headers_train"
+              :items="train_traffic"
+              class="elevation-1"
+              :pagination.sync="pagination_train"
+            >
+              <template slot="items" slot-scope="props">
+                <td>{{ props.item.effective }}</td>
+                <td class="text-xs-right">{{ props.item.nTrains }}</td>
+                <td class="text-xs-right">{{ props.item.nPTrains }}</td>
+                <td class="text-xs-right">{{ props.item.nFTrains }}</td>
+                <td class="text-xs-right">{{ props.item.maxSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.maxSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.PmaxSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.PmaxSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.FmaxSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.FmaxSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.RSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.RSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.memo }}</td>
+              </template>
+            </v-data-table>
+          </v-card>
+          <v-card>
+            <v-card-title>
+              <div>
+                <h3 class="title-text">Vehicle Traffic</h3>
+              </div>
+            </v-card-title>
+            <v-data-table
+              :headers="headers_vehicle"
+              :items="vehicle_traffic"
+              class="elevation-1"
+              :pagination.sync="pagination_vehicle"
+            >
+              <template slot="items" slot-scope="props">
+                <td>{{ props.item.effective }}</td>
+                <td class="text-xs-right">{{ props.item.nVehicles }}</td>
+                <td class="text-xs-right">{{ props.item.nPedestrains }}</td>
+                <td class="text-xs-right">{{ props.item.RPSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.RPSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.RCSpeedL }}</td>
+                <td class="text-xs-right">{{ props.item.RCSpeedR }}</td>
+                <td class="text-xs-right">{{ props.item.DVehicle }}</td>
+                <td class="text-xs-right">{{ props.item.ISource }}</td>
+                <td class="text-xs-right">{{ props.item.memo }}</td>
+                <td class="text-xs-right">{{ props.item.CPPerdestrain }}</td>
+                <td class="text-xs-right">{{ props.item.CPVehicle }}</td>
+              </template>
+            </v-data-table>            
           </v-card>
         </v-tab-item>
       </v-tabs-items>
@@ -518,7 +1084,7 @@ export default {
         memo: '20517'
       },
       info_dialog: null,
-      info_dia_items: {
+      info_dia_tab1: {
         english: '',
         french: '',
         status: null,
@@ -542,6 +1108,79 @@ export default {
         updatedby: '',
         updated_on: false,
         memo: ''
+      },
+      info_dia_tab2: {
+        typeID: null,
+        typeID_num: '',
+        access: null,
+        railyway: null,
+        juris: null,
+        prov: null,
+        sub_t: '',
+        sub_s: null,
+        keyRoute: null,
+        spur_t: '',
+        spur_s: null,
+        gcr: null,
+        pedesP: null,
+        whis: null,
+        passiveP: null,
+        wcProv: '',
+        aws: null,
+        wcAuth: '',
+        trackC: null,
+        rdClass1: null,
+        led: null,
+        dataR: null,
+        rdT: null,
+        rname: '',
+        rdClass2: null,
+        rAuth1: '',
+        private_1: '',
+        rAuth2: '',
+        private_2: '',
+        exemp_s: null,
+        exemp_t: '',
+        last_inspected: false,
+        by_inspetec: '',
+        last_comp: false,
+        by_comp: '',
+        status_s: null
+      },
+      info_dia_tab3: {
+        track: '',
+        rail_app: null,
+        lanes: '',
+        road_app: null,
+        sw: null,
+        aSur1: null,
+        aSur2: null,
+        swAD: null,
+        ssd1: '',
+        ssd2: '',
+        al: null,
+        gs1: '',
+        gs2: '',
+        trackType: null,
+        dssd1: '',
+        dssd2: '',
+        incrDirec: null,
+        dstop1: '',
+        dstop2: '',
+        trackAngle: '',
+        depart1: '',
+        depart2: '',
+        prepareStop: null,
+        aActivation1: '',
+        aActivation2: '',
+        intercon: null,
+        preemp1: '',
+        preemp2: '',
+        disIntersection1: '',
+        disIntersection2: '',
+        clearDis: '',
+        comment1: '',
+        comment2: ''
       },
       // info lists
       status_items: [
@@ -583,16 +1222,116 @@ export default {
       // date picker menu
       menu_inservice_from: false,
       menu_inservice_to: false,
+      menu_inservice_from_tab2: false,
+      menu_inservice_to_tab2: false,
       menu_updated_on: false,
-
+      memu_last_inspected: false,
+      menu_last_comp: false,
       inventory_tabs: null,
- 
       // question panel
       transition: 'slide-right',
       current_question: 0,
       question_dialog: false,
       question_list: [],
-      current_list: []
+      current_list: [],
+      headers_train: [
+        { text: 'Effective As Of', align: 'right', value: 'effective' },
+        { text: '# of Trains Per Day', align: 'center', value: 'nTrains' },
+        { text: '# of Pass Trains Per Day', align: 'center', value: 'nPTrains' },
+        { text: '# of Freight Trains Per Day', align: 'center', value: 'nFTrains' },
+        { text: 'Overall Maximum Speed (MPH) for Rail Approach from Left', value: 'maxSpeedL', align: 'center' },
+        { text: 'Overall Maximum Speed (MPH) for Rail Approach from Right', value: 'maxSpeedR', align: 'center' },
+        { text: 'Passengers Maximum Speed (MPH) for Rail Approach from Left', value: 'PmaxSpeedL', align: 'center' },
+        { text: 'Passengers Maximum Speed (MPH) for Rail Approach from Right', value: 'PmaxSpeedR', align: 'center' },
+        { text: 'Freight Maximum Speed (MPH) for Rail Approach from Left', value: 'FmaxSpeedL', align: 'center' },
+        { text: 'Freight Maximum Speed (MPH) for Rail Approach from Right', value: 'FmaxSpeedR', align: 'center' },
+        { text: 'Rail Design Speed (MPH) for Rail Approach from Left', value: 'RSpeedL', align: 'center' },
+        { text: 'Rail Design Speed (MPH) for Rail Approach from Right', value: 'RSpeedR', align: 'center' },
+        { text: 'Memo                   ', value: 'memo', align: 'center', sortable: false }
+      ],
+      pagination_train: {},
+      train_traffic: [
+        {
+          value: false,
+          effective: '2003/01/01',
+          nTrains: 16800.00,
+          nPTrains: 1200.00,
+          nFTrains: 800.00,
+          maxSpeedL: 120.00,
+          maxSpeedR: 120.00,
+          PmaxSpeedL: 90.00,
+          PmaxSpeedR: 90.00,
+          FmaxSpeedL: 80.00,
+          FmaxSpeedR: 80.00,
+          RSpeedL: 85.00,
+          RSpeedR: 85.00,
+          memo: 'good good'
+        },
+        {
+          value: false,
+          effective: '2003/01/02',
+          nTrains: 16800.00,
+          nPTrains: 1200.00,
+          nFTrains: 800.00,
+          maxSpeedL: 120.00,
+          maxSpeedR: 120.00,
+          PmaxSpeedL: 90.00,
+          PmaxSpeedR: 90.00,
+          FmaxSpeedL: 80.00,
+          FmaxSpeedR: 80.00,
+          RSpeedL: 85.00,
+          RSpeedR: 85.00,
+          memo: 'good good'
+        },
+        {
+          value: false,
+          effective: '2003/01/03',
+          nTrains: 16800.00,
+          nPTrains: 1200.00,
+          nFTrains: 800.00,
+          maxSpeedL: 120.00,
+          maxSpeedR: 120.00,
+          PmaxSpeedL: 90.00,
+          PmaxSpeedR: 90.00,
+          FmaxSpeedL: 80.00,
+          FmaxSpeedR: 80.00,
+          RSpeedL: 85.00,
+          RSpeedR: 85.00,
+          memo: 'good good'
+        }
+      ],
+      headers_vehicle: [
+        { text: 'Effective As Of', align: 'right', value: 'effective' },
+        { text: '# of Vehicles Per Day', align: 'center', value: 'nVehicles' },
+        { text: '# of Pedestrains Per Day', align: 'center', value: 'nPedestrains' },
+        { text: 'Road Posted/Unposted Speed (KPH) for Road Approach From Left', align: 'RPSpeedL', value: 'center' },
+        { text: 'Road Posted/Unposted Speed (KPH) for Road Approach From Right', value: 'RPSpeedR', align: 'center' },
+        { text: 'Road Crossing Design Speed (KPH) for Road Approach From Left', value: 'RCSpeedL', align: 'center' },
+        { text: 'Road Crossing Design Speed (KPH) for Road Approach From Right', value: 'RCSpeedR', align: 'center' },
+        { text: 'Design Vehicle', value: 'DVehicle', align: 'center' },
+        { text: 'Information Source', value: 'ISource', align: 'center' },
+        { text: 'Memo                   ', value: 'memo', align: 'center', sortable: false },
+        { text: 'Cross Product Daily Train by Perdestrain', value: 'CPPerdestrain', align: 'center' },
+        { text: 'Cross Product Daily Train by Vehicle', value: 'CPVehicle', align: 'center' }
+      ],
+      pagination_vehicle: {},
+      vehicle_traffic: [
+        {
+          value: false,
+          effective: '2003/02/01',
+          nVehicles: 16800.00,
+          nPedestrains: 1200.00,
+          RPSpeedL: 800.00,
+          RPSpeedR: 120.00,
+          RCSpeedL: 120.00,
+          RCSpeedR: 90.00,
+          DVehicle: 90.00,
+          ISource: 80.00,
+          memo: 'good good',
+          CPPerdestrain: 85.00,
+          CPVehicle: 85.00
+        }
+      ]
     }
   },
   methods: {
