@@ -918,54 +918,17 @@
               </div>
             </v-card-title>
             <v-data-table
-              :headers="headers_"
-              :items="vpAccident"
+              :headers="headers_info"
+              :items="infoSharing"
               class="elevation-1"
-              :pagination.sync="pagination_accident"
+              :pagination.sync="pagination_info"
             >
               <template slot="items" slot-scope="props">
-                <td>{{ props.item.occurNum }}</td>
-                <td class="text-xs-right">{{ props.item.occurYear }}</td>
-                <td class="text-xs-right">{{ props.item.occurDate }}</td>
-                <td class="text-xs-right">{{ props.item.occurTime }}</td>
-                <td class="text-xs-right">{{ props.item.occurType }}</td>
-                <td class="text-xs-right">{{ props.item.occurIncType }}</td>
-                <td class="text-xs-right">{{ props.item.operator1 }}</td>
-                <td class="text-xs-right">{{ props.item.operator2 }}</td>
-                <td class="text-xs-right">{{ props.item.train1 }}</td>
-                <td class="text-xs-right">{{ props.item.train2 }}</td>
-                <td class="text-xs-right">{{ props.item.involvedTrain }}</td>
-                <td class="text-xs-right">{{ props.item.involvedCars }}</td>
-                <td class="text-xs-right">{{ props.item.involvedDCars }}</td>
-                <td class="text-xs-right">{{ props.item.nearestTown }}</td>
-                <td class="text-xs-right">{{ props.item.trackType }}</td>
-                <td class="text-xs-right">{{ props.item.derail }}</td>
-                <td class="text-xs-right">{{ props.item.taInjuries }}</td>
-                <td class="text-xs-right">{{ props.item.taFatal }}</td>
-                <td class="text-xs-right">{{ props.item.taSerious }}</td>
-                <td class="text-xs-right">{{ props.item.taMinor }}</td>
-                <td class="text-xs-right">{{ props.item.tfEmp }}</td>
-                <td class="text-xs-right">{{ props.item.tfPass }}</td>
-                <td class="text-xs-right">{{ props.item.tfMoto }}</td>
-                <td class="text-xs-right">{{ props.item.tfMotoPass }}</td>
-                <td class="text-xs-right">{{ props.item.tfTrespass }}</td>
-                <td class="text-xs-right">{{ props.item.tfOther }}</td>
-                <td class="text-xs-right">{{ props.item.tsEmp }}</td>
-                <td class="text-xs-right">{{ props.item.tsPass }}</td>
-                <td class="text-xs-right">{{ props.item.tsMoto }}</td>
-                <td class="text-xs-right">{{ props.item.tsMotoPass }}</td>
-                <td class="text-xs-right">{{ props.item.tsTraspass }}</td>
-                <td class="text-xs-right">{{ props.item.tsOthers }}</td>
-                <td class="text-xs-right">{{ props.item.tmEmp }}</td>
-                <td class="text-xs-right">{{ props.item.tmPass }}</td>
-                <td class="text-xs-right">{{ props.item.tmMoto }}</td>
-                <td class="text-xs-right">{{ props.item.tmMotoPass }}</td>
-                <td class="text-xs-right">{{ props.item.tmTrespass }}</td>
-                <td class="text-xs-right">{{ props.item.tmOthers }}</td>
-                <td class="text-xs-right">{{ props.item.cause1 }}</td>
-                <td class="text-xs-right">{{ props.item.cause2 }}</td>
-                <td class="text-xs-right">{{ props.item.cause3 }}</td>
-                <td class="text-xs-right">{{ props.item.occuSummary }}</td>
+                <td>{{ props.item.shareby }}</td>
+                <td class="text-xs-right">{{ props.item.lastUpdated }}</td>
+                <td class="text-xs-right">{{ props.item.subDate }}</td>
+                <td class="text-xs-right">{{ props.item.reason }}</td>
+                <td class="text-xs-right">{{ props.item.memo }}</td>
               </template>
             </v-data-table>
           </v-card>
@@ -1500,6 +1463,17 @@ export default {
       ],
       pagination_accident: {},
       vpAccident: [
+
+      ],
+      headers_info: [
+        { text: 'Shared By', align: 'left', value: 'shareby' },
+        { text: 'Last Updated Date', align: 'left', value: 'lastUpdated' },
+        { text: 'Submission Date', align: 'left', value: 'subDate' },
+        { text: 'Shared Reason', align: 'left', value: 'reason' },
+        { text: 'Shared Memo', align: 'left', value: 'memo' }
+      ],
+      pagination_info: {},
+      infoSharing: [
 
       ]
     }
