@@ -819,6 +819,11 @@
                 <td class="text-xs-right">{{ props.item.RSpeedR }}</td>
                 <td class="text-xs-right">{{ props.item.memo }}</td>
               </template>
+              <template slot="no-data">
+                <v-alert :value="true" color="cyan darken-1" icon="warning">
+                  Sorry, nothing to display here :(
+                </v-alert>
+              </template>
             </v-data-table>
           </v-card>
           <v-card>
@@ -846,6 +851,11 @@
                 <td class="text-xs-right">{{ props.item.memo }}</td>
                 <td class="text-xs-right">{{ props.item.CPPerdestrain }}</td>
                 <td class="text-xs-right">{{ props.item.CPVehicle }}</td>
+              </template>
+              <template slot="no-data">
+                <v-alert :value="true" color="cyan darken-1" icon="warning">
+                  Sorry, nothing to display here :(
+                </v-alert>
               </template>
             </v-data-table>            
           </v-card>
@@ -907,6 +917,11 @@
                 <td class="text-xs-right">{{ props.item.cause3 }}</td>
                 <td class="text-xs-right">{{ props.item.occuSummary }}</td>
               </template>
+              <template slot="no-data">
+                <v-alert :value="true" color="cyan darken-1" icon="warning">
+                  Sorry, nothing to display here :(
+                </v-alert>
+              </template>
             </v-data-table>
           </v-card>
         </v-tab-item>
@@ -929,6 +944,11 @@
                 <td class="text-xs-right">{{ props.item.subDate }}</td>
                 <td class="text-xs-right">{{ props.item.reason }}</td>
                 <td class="text-xs-right">{{ props.item.memo }}</td>
+              </template>
+              <template slot="no-data">
+                <v-alert :value="true" color="cyan darken-1" icon="warning">
+                  Sorry, nothing to display here :(
+                </v-alert>
               </template>
             </v-data-table>
           </v-card>
